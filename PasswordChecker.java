@@ -5,28 +5,55 @@ public class PasswordChecker {
 
 	public static void main(String[] args) {
 		
+		// set up a Scanner to read user input
+		Scanner keyboard = new Scanner(System.in);
+		
 		// getting their password
 		System.out.println("Please enter your password.");
-		Scanner keyboard = new Scanner(System.in);
 		String password = keyboard.nextLine();
 		
 		// getting their name
 		System.out.println("Please enter your first name.");
 		String firstName = keyboard.nextLine();
 		
-		
-		checkLength(password);
-		checkForName(password, firstName);
-		checkForUppercase(password);
-		checkForLowercase(password);
-		checkForNumber(password);
-		
-		System.out.println("Closing.");
+		// while their password is invalid, keep prompting them for a password
+		while (passwordValid(password, firstName) == false) {
+			// uncommenting the following lines will make each statement print twice
+			// the passwordValid() method will return an error message for the first error that occurs,
+			// not all of them at once
+			
+			//checkLength(password);
+			//checkForName(password, firstName);
+			//checkForUppercase(password);
+			//checkForLowercase(password);
+			//checkForNumber(password);
+			
+			System.out.println("Please enter a valid password.");
+			password = keyboard.next();
+		}
+
+		// ends the program when password is valid
+		System.out.println("Password is valid. Closing.");
 		keyboard.close();
 			
 	}
 	
 ////////////// METHODS //////////////	
+	
+	// method that checks password validity, used for the while loop
+	public static boolean passwordValid(String password, String name) {
+		
+		if (checkLength(password) == false
+				|| checkForName(password, name) == false
+				|| checkForUppercase(password) == false
+				|| checkForLowercase(password) == false
+				|| checkForNumber(password) == false ) {
+			
+			return false;
+		}
+		
+		return true;
+	}
 	
 	// checks to make sure password is greater than 8 characters
 	public static boolean checkLength(String password) {
