@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class PasswordChecker {
 
 	public static void main(String[] args) {
@@ -17,16 +18,6 @@ public class PasswordChecker {
 		
 		// while their password is invalid, keep prompting them for a password
 		while (passwordValid(password, firstName) == false) {
-			// uncommenting the following lines will make each statement print twice
-			// the passwordValid() method will return an error message for the first error that occurs,
-			// not all of them at once
-			
-			//checkLength(password);
-			//checkForName(password, firstName);
-			//checkForUppercase(password);
-			//checkForLowercase(password);
-			//checkForNumber(password);
-			
 			System.out.println("Please enter a valid password.");
 			password = keyboard.next();
 		}
@@ -37,9 +28,7 @@ public class PasswordChecker {
 			
 	}
 	
-	/////////////////////////////////////
-	////////////// METHODS //////////////
-	/////////////////////////////////////
+////////////// METHODS //////////////	
 	
 	// method that checks password validity, used for the while loop
 	public static boolean passwordValid(String password, String name) {
@@ -84,7 +73,7 @@ public class PasswordChecker {
 
 	// checks to make sure password contains at least 1 upper case letter
 	public static boolean checkForUppercase(String password) {
-		
+	/**	
 		// checks if the password given is equal to the password made lowercase
 		// if they are unequal, then it contains an uppercase letter
 		boolean hasUppercase = !password.equals(password.toLowerCase());
@@ -94,7 +83,15 @@ public class PasswordChecker {
 		} else {
 			System.out.println("Your password does not contain an uppercase letter.");
 		}
+		**/
 		
+		for (int i = 0; i < password.length(); i++) {
+			if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') {
+				return true;
+			}
+		}
+			
+		System.out.println("Your password does not contain an uppercase letter.");
 		return false;
 	}
 	
