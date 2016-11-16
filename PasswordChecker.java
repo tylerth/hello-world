@@ -4,31 +4,29 @@ import java.util.Scanner;
 public class PasswordChecker {
 
 	public static void main(String[] args) {
-		boolean checker = true;
 		
-		while (checker){
-			// getting their password
-			System.out.println("Please enter your password.");
-			Scanner keyboard = new Scanner(System.in);
-			String password = keyboard.nextLine();
+		// getting their password
+		System.out.println("Please enter your password.");
+		Scanner keyboard = new Scanner(System.in);
+		String password = keyboard.nextLine();
+		
+		// getting their name
+		System.out.println("Please enter your first name.");
+		String firstName = keyboard.nextLine();
+		
+		
+		checkLength(password);
+		checkForName(password, firstName);
+		checkForUppercase(password);
+		checkForLowercase(password);
+		checkForNumber(password);
+		
+		System.out.println("Closing.");
+		keyboard.close();
 			
-			// getting their name
-			System.out.println("Please enter your first name.");
-			String firstName = keyboard.nextLine();
-			
-			
-			checkLength(password);
-			checkForName(password, firstName);
-			checkForUppercase(password);
-			checkForLowercase(password);
-			checkForNumber(password);
-			
-			System.out.println("Password verified. Closing.");
-			keyboard.close();
-			checker = false;
-			
-		}
 	}
+	
+////////////// METHODS //////////////	
 	
 	// checks to make sure password is greater than 8 characters
 	public static boolean checkLength(String password) {
