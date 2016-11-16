@@ -37,7 +37,9 @@ public class PasswordChecker {
 			
 	}
 	
-////////////// METHODS //////////////	
+	/////////////////////////////////////
+	////////////// METHODS //////////////
+	/////////////////////////////////////
 	
 	// method that checks password validity, used for the while loop
 	public static boolean passwordValid(String password, String name) {
